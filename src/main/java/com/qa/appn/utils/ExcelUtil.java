@@ -1,4 +1,4 @@
-package com.qa.apps.utils;
+package com.qa.appn.utils;
 
 public class ExcelUtil {
 

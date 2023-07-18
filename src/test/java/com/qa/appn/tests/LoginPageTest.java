@@ -3,8 +3,8 @@ package com.qa.appn.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.qa.appn.base.BaseTest;
-import com.qa.apps.utils.AppConstants;
-import com.qa.apps.utils.AppErrors;
+import com.qa.appn.utils.AppConstants;
+import com.qa.appn.utils.AppErrors;
 
 public class LoginPageTest extends BaseTest {
 
