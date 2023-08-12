@@ -30,7 +30,8 @@ public class LoginPageTest extends BaseTest {
 
 	@Test
 	public void loginTest() {
-		Assert.assertTrue(loginPage.doLogin("abc@gmail.com", "abc"), AppErrors.LOGIN_UNSUCCESSFUL);
+		accPage = loginPage.doLogin("abc@gmail.com", "abc");
+		Assert.assertTrue(accPage.isLogoutExists(),AppErrors.LOGIN_UNSUCCESSFUL);
 	}
 }
 
