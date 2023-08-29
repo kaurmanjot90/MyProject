@@ -13,7 +13,7 @@ public class ProductInfoPageTest extends BaseTest {
 	
 	@BeforeClass
 	public void productInfoSetup() {
-		accPage = loginPage.doLogin("abc@gmail.com", "abc");
+		accPage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
 	}
 	
 	@DataProvider

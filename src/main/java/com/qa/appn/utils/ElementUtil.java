@@ -3,7 +3,6 @@ package com.qa.appn.utils;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
@@ -20,22 +19,22 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.log4testng.Logger;
-
 import com.qa.appn.factory.DriverFactory;
+
 
 public class ElementUtil {
 	public static final Logger log = Logger.getLogger(ElementUtil.class);
 
 
 	private WebDriver driver;
-	private JavaScriptUtil jsUtil;
+	private JavascriptUtil jsUtil;
 
 	public ElementUtil(WebDriver driver) {
 		this.driver = driver;
-		//jsUtil = new JavaScriptUtil(driver);
+		jsUtil = new JavascriptUtil(driver);
 	}
 
-	public WebElement getElement(By locator) {
+	public WebElement getElement(By locator) { //6.
 		WebElement ele = driver.findElement(locator);
 		if(Boolean.parseBoolean(DriverFactory.highlight)) {
 			jsUtil.flash(ele);

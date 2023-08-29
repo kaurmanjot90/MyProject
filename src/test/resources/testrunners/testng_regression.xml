@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="MyProject Appn Test Regression Suite" thread-count="4"
+	parallel="tests" verbose="4">
+
+	<listeners>
+<!--	<listener-->
+<!--			class-name="com.qa.opencart.listeners.AnnotationTransformer" />-->
+		<listener
+			class-name="com.qa.appn.listeners.ExtentReportListener" />
+<!--		<listener-->
+<!--			class-name="com.qa.opencart.listeners.TestAllureListener" />-->
+	</listeners>
+
+	<test name="Login Page Test _ chrome _ 109">
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<parameter name="browserversion" value="109.0" />-->
+
+		<classes>
+			<class name="com.qa.appn.tests.LoginPageTest">
+
+			</class>
+		</classes>
+
+	</test>
+
+
+<!--	 <test name="Login Page Test _ chrome _ 90">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<parameter name="browserversion" value="90.0" />-->
+
+<!--		<classes>-->
+<!--			<class name="com.qa.appn.tests.LoginPageTest">-->
+
+<!--			</class>-->
+<!--		</classes>-->
+
+<!--	</test>-->
+
+
+	<test name="Accounts Page Test_chrome_79">
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<parameter name="browserversion" value="79.0" />-->
+
+
+		<classes>
+			<class name="com.qa.appn.tests.AccountsPageTest">
+
+			</class>
+		</classes>
+
+	</test>
+
+
+<!--	<test name="Accounts Page Test_chrome_90">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<parameter name="browserversion" value="90.0" />-->
+
+
+<!--		<classes>-->
+<!--			<class name="com.qa.appn.tests.AccountsPageTest">-->
+
+<!--			</class>-->
+<!--		</classes>-->
+
+<!--	</test>-->
+
+
+	<test name="Product Info Page Test_ chrome _90">
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<parameter name="browserversion" value="90.0" />-->
+		<classes>
+			<class name="com.qa.appn.tests.ProductInfoPageTest">
+			</class>
+		</classes>
+	</test>
+	
+	
+<!--	<test name="Product Info Page Test_ chrome _108">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<parameter name="browserversion" value="108.0" />-->
+<!--		<classes>-->
+<!--			<class name="com.qa.appn.tests.ProductInfoPageTest">-->
+<!--			</class>-->
+<!--		</classes>-->
+<!--	</test> -->
+
+
+
+</suite>

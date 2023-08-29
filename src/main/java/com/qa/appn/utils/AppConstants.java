@@ -9,12 +9,15 @@ public class AppConstants {
 	
     public static final String LOGIN_PAGE_FRACTION_URL = "route=account/login";
     
-    public static final String ACCOUNTS_PAGE_TITLE = "My Accounts";
+    public static final String ACCOUNTS_PAGE_TITLE = "My Account";
     
     public static final String SEARCH_PAGE_TITLE = "Search -";
     
-    public static final String ACCOUNTS_PAGE_FRACTION_URL = "route=account/account";
+    public static final String ACCOUNTS_PAGE_FRACTION_URL = "account";
     
-    public static final List<String> EXPECTED_ACC_HEADERS_LIST = Arrays.asList("My Account", "My Orders", "My Affiliate");
+    public static final List<String> EXPECTED_ACC_HEADERS_LIST = Arrays.asList("My Account", "My Orders", "My Affiliate Account", "Newsletter");
     
+    public static final String ACCOUNT_REGISTER_SUCCESS_MESSG = "Your Account has been created";
+    
+    public static final String REGISTER_SHEET_NAME = "register";
 }

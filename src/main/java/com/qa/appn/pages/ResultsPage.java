@@ -15,6 +15,7 @@ public class ResultsPage {
 	
 	public ResultsPage(WebDriver driver) {
 		this.driver = driver;
+		eleUtil = new ElementUtil(driver);
 	}
 
 	public String getSearchPageTitle(String productName) {

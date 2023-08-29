@@ -2,12 +2,23 @@ package com.qa.appn.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import com.qa.appn.base.BaseTest;
 import com.qa.appn.utils.AppConstants;
 import com.qa.appn.utils.AppErrors;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
+
+@Epic("Epic - 001: Design Login Page")
+@Story("US - 001: Login Page Functionality	")
 public class LoginPageTest extends BaseTest {
 
+	@Description("Login Page Title Test")
+	@Severity(SeverityLevel.TRIVIAL)
 	@Test
 	public void loginPageTitleTest() {
 		String actTitle = loginPage.getLoginPageTitle();
@@ -16,6 +27,8 @@ public class LoginPageTest extends BaseTest {
 		//steps + validation = automation testing.
 	}
 
+	@Description("Login Page URL Test")
+	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void loginPageURLTest() {
 		String actURL = loginPage.getLoginPageUrl();
@@ -23,14 +36,18 @@ public class LoginPageTest extends BaseTest {
 		Assert.assertTrue(actURL.contains(AppConstants.LOGIN_PAGE_FRACTION_URL), AppErrors.NO_URL_MATCHED);
 	}
 
+	@Description("Forgot Pwd Link Exists Test on Login Page Test")
+	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void forgotPwdLinkExistsTest() {
 		Assert.assertTrue(loginPage.isForgotPwdLinkExist());
 	}
 
+	@Description("User is able to login")
+	@Severity(SeverityLevel.BLOCKER)
 	@Test
 	public void loginTest() {
-		accPage = loginPage.doLogin("abc@gmail.com", "abc");
+		accPage = loginPage.doLogin(prop.getProperty("username"), prop.getProperty("password"));
 		Assert.assertTrue(accPage.isLogoutExists(),AppErrors.LOGIN_UNSUCCESSFUL);
 	}
 }

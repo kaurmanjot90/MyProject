@@ -6,7 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import com.qa.appn.base.BaseTest;
 import com.qa.appn.utils.AppConstants;
 import com.qa.appn.utils.AppErrors;
@@ -17,7 +16,7 @@ public class AccountsPageTest extends BaseTest{
 	
 	@BeforeClass
 	public void accSetup() {
-		accPage = loginPage.doLogin("abc@gmail.com", "abc");
+		accPage = loginPage.doLogin(prop.getProperty("username"),prop.getProperty("password"));
 	}
 	
 	@Test

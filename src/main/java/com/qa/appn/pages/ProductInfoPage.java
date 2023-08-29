@@ -17,8 +17,8 @@ public class ProductInfoPage {
 	private ElementUtil eleUtil;
 	private By productHeader = By.cssSelector("div#content h1");
 	private By productImages = By.cssSelector("a.thumbnail");
-	private By productMetadata = By.xpath("");
-	private By pricingData = By.xpath("");
+	private By productMetadata = By.xpath("(//div[@id='content']//ul[@class='list-unstyled'])[position()=1]/li");
+	private By pricingData = By.xpath("(//div[@id='content']//ul[@class='list-unstyled'])[position()=2]/li");
 	
 	private Map<String, String> productMap;
 	

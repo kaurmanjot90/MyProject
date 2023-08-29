@@ -7,6 +7,8 @@ import com.qa.appn.utils.AppConstants;
 import com.qa.appn.utils.ElementUtil;
 import com.qa.appn.utils.TimeUtil;
 
+import io.qameta.allure.Step;
+
 public class LoginPage {
 
 	private WebDriver driver;
@@ -17,7 +19,7 @@ public class LoginPage {
 	private By emailId = By.id("input-email");
 	private By password = By.id("input-password");
 	private By loginBtn = By.xpath("//input[@value='Login']");
-	private By forgotPwdLink = By.linkText("Forgotten Password11");
+	private By forgotPwdLink = By.linkText("Forgotten Password");
 	private By registerLink = By.linkText("Register");
 
 	//2. Page constructor
@@ -27,21 +29,25 @@ public class LoginPage {
 	}
 	
 	//3.Page Actions
+	@Step("getting login page title..")
     public String getLoginPageTitle() {
 		//return driver.getTitle();
-		return eleUtil.waitForTitleIs(AppConstants.ACCOUNTS_PAGE_TITLE, TimeUtil.DEFAULT_TIME_OUT);
+		return eleUtil.waitForTitleIs(AppConstants.LOGIN_PAGE_TITLE, TimeUtil.DEFAULT_TIME_OUT);
 	}
 	
+	@Step("getting login page url..")
 	public String getLoginPageUrl() {
 		//return driver.getCurrentUrl();	
-		return eleUtil.waitForUrlContains(AppConstants.ACCOUNTS_PAGE_FRACTION_URL, TimeUtil.DEFAULT_TIME_OUT);
+		return eleUtil.waitForUrlContains(AppConstants.LOGIN_PAGE_FRACTION_URL, TimeUtil.DEFAULT_TIME_OUT);
 	}
 	
+	@Step("if forgot pwd link exists..")
 	public boolean isForgotPwdLinkExist() {
 		//return driver.findElement(forgotPwdLink).isDisplayed();
 		return eleUtil.doIsDisplayed(forgotPwdLink);
 	}
 	
+	@Step("logging into application with username : {0} and password : {1}")
 	public AccountsPage doLogin(String un,String pwd) {
 		System.out.println("creds are :"+un+":"+pwd);
 		//driver.findElement(emailId).sendKeys(un);
@@ -53,6 +59,12 @@ public class LoginPage {
 		return new AccountsPage(driver);
 		//to verify it has logged in or not.
 		//return driver.findElement(By.linkText("Logout")).isDisplayed();
+	}
+	
+	@Step("navigating to register page..")
+	public RegPage navigateToRegisterPage() {
+		eleUtil.doClick(registerLink);
+		return new RegPage(driver);
 	}
 	
 }

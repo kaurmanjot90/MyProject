@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="My Project App Test Sanity Suite" thread-count="4"
+	parallel="tests" verbose="4">
+
+	<listeners>
+		<listener
+			class-name="com.qa.appn.listeners.ExtentReportListener" />
+		<listener
+			class-name="com.qa.appn.listeners.TestAllureListener" />
+	</listeners>
+
+	<test name="Login Page Test">
+		
+		<classes>
+			<class name="com.qa.appn.tests.LoginPageTest">
+				
+			</class>
+		</classes>
+	
+	</test>
+</suite>
+
+<!--is it a good practise to use multiple listeners? they are very high listeners so execution time would be high
+ so, better to use one for optimization and also there is no use of keeping multiple results. -->
+<!-- some dont even use these reports and use testng reports b/c of execution times.-->
