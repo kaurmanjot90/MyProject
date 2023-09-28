@@ -65,17 +65,55 @@ public class DriverFactory {
 
 	public Properties initProp() {
 		prop = new Properties();
+		FileInputStream ip = null;
+		// mvn clean install -Denv="envName" (-D to pass parameter variable)
+		// mvn clean install
+		String envName = System.getProperty("env");
+		System.out.println("Running Test Cases on : " + envName);
+		if (envName == null) {
+			System.out.println("No env is given, hence running scripts on QA env");
+			try {
+				ip = new FileInputStream("./src/test/resources/config/qa.config.properties");
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		} else {
+			try {
+				switch (envName.toLowerCase()) {
+				case ("qa"):
+					ip = new FileInputStream("./src/test/resources/config/qa.config.properties");
+					break;
+				case ("dev"):
+					ip = new FileInputStream("./src/test/resources/config/dev.config.properties");
+					break;
+				case ("stage"):
+					ip = new FileInputStream("./src/test/resources/config/stage.config.properties");
+					break;
+				case ("uat"):
+					ip = new FileInputStream("./src/test/resources/config/uat.config.properties");
+					break;
+				case ("prod"):
+					ip = new FileInputStream("./src/test/resources/config/config.properties");
+					break;
+				default:
+					System.out.println("please pass the right environment name");
+				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+
+		}
+		
 		try {
-			FileInputStream ip = new FileInputStream("./src/test/resources/config/config.properties");
 			prop.load(ip);
-		} catch (FileNotFoundException e) { // order of exceptions DOES matter.
-			e.printStackTrace();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		return prop;
 	}
-	
+
 	public static String getScreenshot() {
 		File srcFile = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
 		String path = System.getProperty("user.dir") + "/screenshot/" + System.currentTimeMillis() + ".png";
