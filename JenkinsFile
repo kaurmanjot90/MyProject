@@ -77,7 +77,7 @@ pipeline
             }
         }
         
-        stage('Sanity Automation Test') {
+        stage('Stage Automation Test') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     git 'https://github.com/kaurmanjot90/MyProject.git'
