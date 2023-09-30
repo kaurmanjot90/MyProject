@@ -11,7 +11,7 @@ public class OptionsManager {
 	private Properties prop;
 	private ChromeOptions co;
 	private FirefoxOptions fo;
-	private SafariOptions so;
+	//private SafariOptions so;
 	
 	public OptionsManager(Properties prop) {
 		this.prop = prop;
