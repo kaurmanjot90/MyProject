@@ -1,93 +1,64 @@
-pipeline 
-{
+pipeline{
+    
+    
     agent any
     
-    tools{
-    	maven 'maven'
-        }
-
-    stages 
-    {
-        stage('Build') 
-        {
+    stages{
+        
+        stage("build"){
             steps{
-                echo("dev project built")
-                 }
-         }
-    }
-                   
+                echo("build project")
+            }
+        }
         
-        stage("Deploy to QA"){
+        stage("deploy to dev"){
             steps{
-                echo("deploy to qa")
-            }
-        }
-                
-        stage('Sanity Automation Test') {
-            steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    git 'https://github.com/kaurmanjot90/MyProject.git'
-                    sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml"
-                    
-                }
-            }
-        }
-                
-     
-        stage('Publish Allure Reports') {
-           steps {
-                script {
-                    allure([
-                        includeProperties: false,
-                        jdk: '',
-                        properties: [],
-                        reportBuildPolicy: 'ALWAYS',
-                        results: [[path: '/allure-results']]
-                    ])
-                }
+                echo("deploy to dev")
             }
         }
         
-        
-        stage('Publish Extent Report'){
+        stage("RUN UTs"){
             steps{
-                     publishHTML([allowMissing: false,
-                                  alwaysLinkToLastBuild: false, 
-                                  keepAll: true, 
-                                  reportDir: 'reports', 
-                                  reportFiles: 'TestExecutionReport.html', 
-                                  reportName: 'HTML Extent Report', 
-                                  reportTitles: ''])
+                echo("run unit tests")
             }
         }
         
-        stage("Deploy to Stage"){
+        
+         stage("deploy to QA"){
             steps{
-                echo("deploy to Stage")
+                echo("deploy to dev")
             }
         }
         
-        stage('Sanity Automation Test') {
-            steps {
-                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    git 'https://github.com/kaurmanjot90/MyProject.git'
-                    sh "mvn clean test -Dsurefire.suiteXmlFiles=src/test/resources/testrunners/testng_sanity.xml"
-                    
-                }
-            }
-        }
-        
-        stage('Publish sanity Extent Report'){
+        stage("RUN Automation tests"){
             steps{
-                     publishHTML([allowMissing: false,
-                                  alwaysLinkToLastBuild: false, 
-                                  keepAll: true, 
-                                  reportDir: 'reports', 
-                                  reportFiles: 'TestExecutionReport.html', 
-                                  reportName: 'HTML Sanity Extent Report', 
-                                  reportTitles: ''])
+                echo("run automation tests")
+            }
+        }
+        
+        
+         stage("deploy to STAGE"){
+            steps{
+                echo("deploy to stage")
+            }
+        }
+        
+        stage("RUN Sanity tests"){
+            steps{
+                echo("run automation tests")
+            }
+        }
+        
+        stage("deploy to PROD"){
+            steps{
+                echo("deploy to prod")
             }
         }
         
         
     }
+    
+    
+    
+    
+}
