@@ -5,6 +5,7 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
 import com.qa.appn.factory.DriverFactory;
@@ -26,12 +27,17 @@ public class BaseTest {
 	protected SoftAssert softAssert;
 	protected Properties prop;
 	
+	@Parameters({"browser","browserversion"})
 	@BeforeTest
-	public void setup() {
+	public void setup(String browserName, String browserVersion) {
 		//responsible for launching the url and setting the browser in basetest
 		df = new DriverFactory();
 		prop = df.initProp();
-		driver = df.initDriver(prop); //call be reference
+		if(browserName != null) {
+			prop.setProperty("browser", browserName);
+			prop.setProperty("browserversion", browserVersion);
+		}
+		driver = df.initDriver(prop); //call by reference
 		loginPage = new LoginPage(driver);//the same driver is given here.	
 		softAssert = new SoftAssert(); //4. we have to create object of soft assert. for hard assertion, no need.
 	}

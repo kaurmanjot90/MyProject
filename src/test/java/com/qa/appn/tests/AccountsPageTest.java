@@ -30,7 +30,7 @@ public class AccountsPageTest extends BaseTest{
 	public void accPageURLTest() {
 		String actURL = accPage.getAccountPageURL();
 		System.out.println("Accounts Page URL : " + actURL);
-		Assert.assertEquals(actURL.contains(AppConstants.ACCOUNTS_PAGE_FRACTION_URL), AppErrors.NO_URL_MATCHED);
+		Assert.assertTrue(actURL.contains(AppConstants.ACCOUNTS_PAGE_FRACTION_URL), AppErrors.NO_URL_MATCHED);
 	}
 	
 	@Test

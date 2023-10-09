@@ -13,9 +13,9 @@
 			class-name="com.qa.appn.listeners.TestAllureListener" />
 	</listeners>
 
-	<test name="Login Page Test _ chrome _ 109">
-<!--		<parameter name="browser" value="chrome" />-->
-<!--		<parameter name="browserversion" value="109.0" />-->
+	<test name="Login Page Test_chrome_109">
+		<parameter name="browser" value="chrome" />
+		<parameter name="browserversion" value="109.0" />
 
 		<classes>
 			<class name="com.qa.appn.tests.LoginPageTest">
@@ -26,23 +26,21 @@
 	</test>
 
 
-<!--	 <test name="Login Page Test _ chrome _ 90">-->
-<!--		<parameter name="browser" value="chrome" />-->
-<!--		<parameter name="browserversion" value="90.0" />-->
+	 <test name="Login Page Test _ chrome _ 90">
+		<parameter name="browser" value="chrome" />
+		<parameter name="browserversion" value="90.0" />
 
-<!--		<classes>-->
-<!--			<class name="com.qa.appn.tests.LoginPageTest">-->
+		<classes>
+			<class name="com.qa.appn.tests.LoginPageTest">
 
-<!--			</class>-->
-<!--		</classes>-->
+			</class>
+		</classes>
 
-<!--	</test>-->
-
-
-	<test name="Accounts Page Test_chrome_79">
-<!--		<parameter name="browser" value="chrome" />-->
-<!--		<parameter name="browserversion" value="79.0" />-->
-
+	</test>
+	
+	<test name="Accounts Page Test _ chrome _ 90">
+		<parameter name="browser" value="chrome" />
+		<parameter name="browserversion" value="90.0" />
 
 		<classes>
 			<class name="com.qa.appn.tests.AccountsPageTest">
@@ -53,38 +51,18 @@
 	</test>
 
 
-<!--	<test name="Accounts Page Test_chrome_90">-->
-<!--		<parameter name="browser" value="chrome" />-->
-<!--		<parameter name="browserversion" value="90.0" />-->
+	<test name="Accounts Page Test_firefox_117">
+		<parameter name="browser" value="firefox" />
+		<parameter name="browserversion" value="117.0" />
 
 
-<!--		<classes>-->
-<!--			<class name="com.qa.appn.tests.AccountsPageTest">-->
-
-<!--			</class>-->
-<!--		</classes>-->
-
-<!--	</test>-->
-
-
-	<test name="Product Info Page Test_ chrome _90">
-<!--		<parameter name="browser" value="chrome" />-->
-<!--		<parameter name="browserversion" value="90.0" />-->
 		<classes>
-			<class name="com.qa.appn.tests.ProductInfoPageTest">
+			<class name="com.qa.appn.tests.AccountsPageTest">
+
 			</class>
 		</classes>
+
 	</test>
-	
-	
-<!--	<test name="Product Info Page Test_ chrome _108">-->
-<!--		<parameter name="browser" value="chrome" />-->
-<!--		<parameter name="browserversion" value="108.0" />-->
-<!--		<classes>-->
-<!--			<class name="com.qa.appn.tests.ProductInfoPageTest">-->
-<!--			</class>-->
-<!--		</classes>-->
-<!--	</test> -->
 
 
 

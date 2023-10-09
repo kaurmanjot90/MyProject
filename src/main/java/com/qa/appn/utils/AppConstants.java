@@ -13,7 +13,7 @@ public class AppConstants {
     
     public static final String SEARCH_PAGE_TITLE = "Search -";
     
-    public static final String ACCOUNTS_PAGE_FRACTION_URL = "account";
+    public static final String ACCOUNTS_PAGE_FRACTION_URL = "route=account/account";
     
     public static final List<String> EXPECTED_ACC_HEADERS_LIST = Arrays.asList("My Account", "My Orders", "My Affiliate Account", "Newsletter");
     
