@@ -19,7 +19,7 @@ public class BaseTest {
 
 	DriverFactory df;
 	WebDriver driver;
-	protected LoginPage loginPage; //so that only child classes could access it.
+	protected LoginPage loginPage; //so that only different package's child class could access it.
 	protected AccountsPage accPage;
 	protected ResultsPage resultsPage;
 	protected ProductInfoPage productInfoPage;

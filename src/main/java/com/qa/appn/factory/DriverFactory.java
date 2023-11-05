@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
-
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +17,6 @@ import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
-//some people name as DriverManager as well.
 
 public class DriverFactory {
 
@@ -38,7 +36,6 @@ public class DriverFactory {
 		// cross browser logic
 		if (browserName.equalsIgnoreCase("chrome")) {
 			// driver = new ChromeDriver(optionsManager.getChromeOptions());
-			// tldriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
 			if (Boolean.parseBoolean(prop.getProperty("remote"))) {
 				// remote execution on docker/grid/cloud
 				init_remoteDriver("chrome");
@@ -48,7 +45,6 @@ public class DriverFactory {
 			}
 		} else if (browserName.equalsIgnoreCase("Firefox")) {
 			// driver = new FirefoxDriver(optionsManager.getFirefoxOptions());
-			// tldriver.set(new FirefoxDriver(optionsManager.getFirefoxOptions()));
 			if (Boolean.parseBoolean(prop.getProperty("remote"))) {
 				// remote execution on docker/grid/cloud
 				init_remoteDriver("Firefox");
@@ -76,8 +72,7 @@ public class DriverFactory {
 		// do not want to use implicit wait
 		getDriver().manage().window().maximize();
 		getDriver().get(prop.getProperty("url"));
-		// no page load timeout - because that is also kind of global wait, but can use
-		// it - if you want.
+		// no page load timeout - because that is also kind of global wait, but can use it - if you want.
 		return getDriver();
 
 	}
@@ -162,7 +157,6 @@ public class DriverFactory {
 		try {
 			prop.load(ip);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

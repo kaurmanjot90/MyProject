@@ -7,6 +7,7 @@ import java.util.Properties;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.safari.SafariOptions;
 
 public class OptionsManager {
 	
@@ -14,7 +15,6 @@ public class OptionsManager {
 	private ChromeOptions co;
 	private FirefoxOptions fo;
 	private EdgeOptions eo;
-	//private SafariOptions so;
 	
 	public OptionsManager(Properties prop) {
 		this.prop = prop;
@@ -62,7 +62,7 @@ public class OptionsManager {
 		}
 		return fo;
 	}
-
+	
 	public EdgeOptions getEdgeOptions() {
 		eo = new EdgeOptions();
 		if(Boolean.parseBoolean(prop.getProperty("remote"))) {
@@ -80,7 +80,5 @@ public class OptionsManager {
 		}
 		return eo;
 	}
-	
-
 	
 }

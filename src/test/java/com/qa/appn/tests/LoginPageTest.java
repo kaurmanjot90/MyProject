@@ -14,7 +14,7 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 
 @Epic("Epic - 001: Design Login Page")
-@Story("US - 001: Login Page Functionality	")
+@Story("US - 001: Login Page Functionality")
 public class LoginPageTest extends BaseTest {
 
 	@Description("Login Page Title Test")
@@ -60,7 +60,7 @@ public class LoginPageTest extends BaseTest {
 
 
 
-//writing Test at the end of every test method
+//writing Test at the end of every test method name
 //easy to identify that it is test method.
 //Cannot inherit loginPage directly here - bcz parent class is present in other package.
 //either declare it public or protected

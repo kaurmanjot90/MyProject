@@ -55,8 +55,7 @@
 		<parameter name="browser" value="firefox" />
 		<parameter name="browserversion" value="117.0" />
 
-
-		<classes>
+   <classes>
 			<class name="com.qa.appn.tests.AccountsPageTest">
 
 			</class>
