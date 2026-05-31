@@ -25,7 +25,8 @@ public class DriverFactory {
 	OptionsManager optionsManager;
 	public static String highlight;
 	public static ThreadLocal<WebDriver> tldriver = new ThreadLocal<WebDriver>();
-
+    //threadlocal is a class in java. Smooth execution. 
+	//gives the local copy of the driver to each and every thread
 	public WebDriver initDriver(Properties prop) {
 
 		String browserName = prop.getProperty("browser").trim();
@@ -68,8 +69,7 @@ public class DriverFactory {
 			System.out.println("Please pass the correct browser name.." + browserName);
 		}
 
-		getDriver().manage().deleteAllCookies();
-		// do not want to use implicit wait
+		getDriver().manage().deleteAllCookies(); // do not want to use implicit wait
 		getDriver().manage().window().maximize();
 		getDriver().get(prop.getProperty("url"));
 		// no page load timeout - because that is also kind of global wait, but can use it - if you want.
@@ -109,6 +109,7 @@ public class DriverFactory {
 
 	}
 
+	//get the local thread copy of the driver.
 	public synchronized static WebDriver getDriver() {
 		return tldriver.get();
 	}

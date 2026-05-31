@@ -20,10 +20,10 @@ public class ExcelUtil {
 		try {
 			FileInputStream ip = new FileInputStream(TEST_DATA_SHEET_PATH);
 
-			book = WorkbookFactory.create(ip); //workbook factory is a class from apache poi
-			sheet = book.getSheet(sheetName);
+			book = WorkbookFactory.create(ip); //workbook factory is a class from apache poi. this will have the entire control over excel.
+			sheet = book.getSheet(sheetName);//which sheet you want to use.
 
-			data = new Object[sheet.getLastRowNum()][sheet.getRow(0).getLastCellNum()];
+			data = new Object[sheet.getLastRowNum()][sheet.getRow(0).getLastCellNum()];//get rows and column count.
 
 			for (int i = 0; i < sheet.getLastRowNum(); i++) {
 				for (int j = 0; j < sheet.getRow(0).getLastCellNum(); j++) {

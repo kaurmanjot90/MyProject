@@ -60,8 +60,8 @@ public class RegPage {
 				}
 				else {
 					eleUtil.doClick(registerLink);
-				}
-			return false;	
+					}
+				return false;		
 				
 	}
 	

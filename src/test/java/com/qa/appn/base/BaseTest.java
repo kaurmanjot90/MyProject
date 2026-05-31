@@ -37,8 +37,9 @@ public class BaseTest {
 			prop.setProperty("browser", browserName);
 			prop.setProperty("browserversion", browserVersion);
 		}
-		driver = df.initDriver(prop); //call by reference
-		loginPage = new LoginPage(driver);//the same driver is given here.	
+		//df.initdriver("chrome");
+		driver = df.initDriver(prop); //call by reference - calling a method by passing the reference.
+		loginPage = new LoginPage(driver);//the same driver is given here by initDriver.	
 		softAssert = new SoftAssert(); //4. we have to create object of soft assert. for hard assertion, no need.
 	}
 	
@@ -47,3 +48,7 @@ public class BaseTest {
 		driver.quit();
 	}
 }
+
+//update the project in eclipse in case if it does not work properly.
+//we should not write dologin here, as it would skip the login page tests.
+

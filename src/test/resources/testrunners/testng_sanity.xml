@@ -12,6 +12,8 @@
 	</listeners>
 
 	<test name="Login Page Test">
+		<parameter name="browser" value="chrome" />
+		<parameter name="browserversion" value="148.0" />
 		
 		<classes>
 			<class name="com.qa.appn.tests.LoginPageTest">
@@ -20,6 +22,31 @@
 		</classes>
 	
 	</test>
+	
+	<test name="Accounts Page Test">
+		<parameter name="browser" value="chrome" />
+		<parameter name="browserversion" value="148.0" />
+		
+		<classes>
+			<class name="com.qa.appn.tests.AccountsPageTest">
+				
+			</class>
+		</classes>
+	
+	</test>
+	
+	<test name="Product Info Page Test">
+		<parameter name="browser" value="chrome" />
+		<parameter name="browserversion" value="148.0" />
+		
+		<classes>
+			<class name="com.qa.appn.tests.ProductInfoPageTest">
+				
+			</class>
+		</classes>
+	
+	</test>
+	
 </suite>
 
 <!--is it a good practise to use multiple listeners? they are very high listeners so execution time would be high

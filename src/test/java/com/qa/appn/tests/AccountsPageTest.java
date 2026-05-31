@@ -10,14 +10,22 @@ import com.qa.appn.base.BaseTest;
 import com.qa.appn.utils.AppConstants;
 import com.qa.appn.utils.AppErrors;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
+
+
+@Epic("Epic - 001: Automation E2E Test")
+@Story("US - 001: Accounts Page Functionality")
+
 public class AccountsPageTest extends BaseTest{
 	
-	//individual pre-condition for accounts page only.
+	//individual precondition for accounts page only.
 	
 	@BeforeClass
 	public void accSetup() {
 		accPage = loginPage.doLogin(prop.getProperty("username"),prop.getProperty("password"));
 	}
+	//need to write above, otherwise it would give null pointer exception.
 	
 	@Test
 	public void accPageTitleTest() {
@@ -44,7 +52,7 @@ public class AccountsPageTest extends BaseTest{
 		Assert.assertEquals(actualHeaders,AppConstants.EXPECTED_ACC_HEADERS_LIST);
 	}
 	
-	@DataProvider //4.
+	@DataProvider //4
 	public Object[][] getProductName(){
 		return new Object[][] {
 			{"macbook"},

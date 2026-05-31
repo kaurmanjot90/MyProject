@@ -36,7 +36,7 @@ public class ElementUtil {
 
 	public WebElement getElement(By locator) { //6.
 		WebElement ele = driver.findElement(locator);
-		if(Boolean.parseBoolean(DriverFactory.highlight)) {
+		if(Boolean.parseBoolean(DriverFactory.highlight)) { //if highlight is true, then only execute this.
 			jsUtil.flash(ele);
 		}
 		return ele;

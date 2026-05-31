@@ -2,32 +2,30 @@ package com.qa.appn.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import com.qa.appn.base.BaseTest;
 import com.qa.appn.utils.AppConstants;
 import com.qa.appn.utils.AppErrors;
-
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 
-@Epic("Epic - 001: Design Login Page")
-@Story("US - 001: Login Page Functionality")
+@Epic("Epic - 001: Automation E2E Test")
+@Story("US - 002: Login Page Functionality")
 public class LoginPageTest extends BaseTest {
 
-	@Description("Login Page Title Test")
+	@Description("Verify the title of the Login Page")
 	@Severity(SeverityLevel.TRIVIAL)
 	@Test
 	public void loginPageTitleTest() {
-		String actTitle = loginPage.getLoginPageTitle();
+		String actTitle = loginPage.getLoginPageTitle(); //loginPage is inherited from BaseTest
 		System.out.println("login Page Title = " + actTitle);
 		Assert.assertEquals(actTitle, AppConstants.LOGIN_PAGE_TITLE, AppErrors.NO_TITLE_MATCHED);
 		//steps + validation = automation testing.
 	}
 
-	@Description("Login Page URL Test")
+	@Description("Verify the Login Page URL")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void loginPageURLTest() {
@@ -36,14 +34,14 @@ public class LoginPageTest extends BaseTest {
 		Assert.assertTrue(actURL.contains(AppConstants.LOGIN_PAGE_FRACTION_URL), AppErrors.NO_URL_MATCHED);
 	}
 
-	@Description("Forgot Pwd Link Exists Test on Login Page Test")
+	@Description("Verify Forgot Password Link Exists")
 	@Severity(SeverityLevel.NORMAL)
 	@Test
 	public void forgotPwdLinkExistsTest() {
 		Assert.assertTrue(loginPage.isForgotPwdLinkExist());
 	}
 
-	@Description("User is able to login")
+	@Description("Verify user is able to login with valid credentials")
 	@Severity(SeverityLevel.BLOCKER)
 	@Test
 	public void loginTest() {

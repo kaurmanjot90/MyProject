@@ -1,6 +1,7 @@
 package com.qa.appn.pages;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -39,8 +40,11 @@ public class ProductInfoPage {
 	
 	
 	public Map<String, String> getProductInformation() { //5.
-		productMap = new HashMap<String, String>();
-		getProductMetadata();
+		productMap = new LinkedHashMap<String, String>(); 
+		//only hash map - No guaranteed order. 
+		//alphabetically, then use Tree Map.
+		//linked hash map - Preserves insertion (or access) order.
+		getProductMetadata(); //encapsulation - calling a private method from the public method.
 		getProductPricingdata();
 		System.out.println(productMap);
 		return productMap;
@@ -53,7 +57,7 @@ public class ProductInfoPage {
 		
 		for(WebElement e : metaDataList) {
 			String meta = e.getText();
-			String metaData[] = meta.split(":");
+			String metaData[] = meta.split(":"); // will return one string array.
 			String metaKey = metaData[0].trim();
 			String metaValue = metaData[1].trim();
 			productMap.put(metaKey, metaValue);
@@ -69,3 +73,5 @@ public class ProductInfoPage {
 			productMap.put("actExTaxPrice", ExTaxPrice);
 	}
 }
+
+// dont use page factory because of stale element exception.

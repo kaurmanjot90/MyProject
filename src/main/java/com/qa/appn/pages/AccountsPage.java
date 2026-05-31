@@ -16,13 +16,15 @@ public class AccountsPage {
 	private WebDriver driver;
 	private ElementUtil eleUtil;
 
+	//private By locators.
 	private By search = By.name("search");
 	private By searchIcon = By.cssSelector("div#search button");
 	private By logoutLink = By.linkText("Logout");
 	private By accSecHeaders = By.cssSelector("div#content h2");
 
+	//page constructors.
 	public AccountsPage(WebDriver driver) {
-		this.driver = driver;
+		this.driver = driver; //you give me the driver and i will use the same driver in line 16.
 		eleUtil = new ElementUtil(driver);
 	}
 
@@ -37,9 +39,9 @@ public class AccountsPage {
 	}
 
 	public boolean ifSearchExists() {
+		return eleUtil.waitForElementVisible(search, TimeUtil.DEFAULT_TIME_OUT).isDisplayed();
 		// return driver.findElement(search).isDisplayed();
 		// return eleUtil.doIsDisplayed(search);
-		return eleUtil.waitForElementVisible(search, TimeUtil.DEFAULT_TIME_OUT).isDisplayed();
 	}
 	
 	public ResultsPage performSearch(String productName) {
@@ -60,11 +62,10 @@ public class AccountsPage {
 
 	public List<String> getAccountsPageSectionHeaders() {
 		List<WebElement> headersList = eleUtil.waitForElementsVisible(accSecHeaders, TimeUtil.DEFAULT_TIME_OUT);
-		List<String> secHeadersValList = new ArrayList<String>();
+		List<String> secHeadersValList = new ArrayList<String>(); //to add all the web element values as text in new arraylist.
 		for (WebElement e : headersList) {
 			String text = e.getText();
 			secHeadersValList.add(text);
-
 		}
 		return secHeadersValList;
 	}

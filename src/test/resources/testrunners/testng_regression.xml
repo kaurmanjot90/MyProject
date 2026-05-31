@@ -63,6 +63,16 @@
 
 	</test>
 
+<test name="Product Info Page Test_firefox_117">
+		<parameter name="browser" value="firefox" />
+		<parameter name="browserversion" value="117.0" />
 
+   <classes>
+			<class name="com.qa.appn.tests.ProductInfoPageTest">
+
+			</class>
+		</classes>
+
+	</test>
 
 </suite>

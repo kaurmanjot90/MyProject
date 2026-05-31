@@ -19,8 +19,8 @@ public class RegPageTest extends BaseTest {
 	}
 	
 	public String getRandomEmail() {
-		Random random = new Random();
-		String email = "septautomation" + random.nextInt(5000) + "@gmail.com";
+		Random random = new Random(); //this class comes from java.
+		String email = "selenium" + random.nextInt(5000) + "@gmail.com";
 		return email;
 	}
 

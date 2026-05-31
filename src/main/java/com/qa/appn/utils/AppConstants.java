@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AppConstants {
+	
+	//these values are not gonna change in future.
 
 	public static final String LOGIN_PAGE_TITLE = "Account Login";
 	

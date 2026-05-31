@@ -9,6 +9,12 @@ import org.testng.annotations.Test;
 
 import com.qa.appn.base.BaseTest;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Story;
+
+@Epic("Epic - 001: Automation E2E Test")
+@Story("US - 003: Product Info Page Functionality")
+
 public class ProductInfoPageTest extends BaseTest {
 	
 	@BeforeClass
@@ -28,7 +34,7 @@ public class ProductInfoPageTest extends BaseTest {
 
 	@Test(dataProvider = "getProductTestData")
 	public void productHeaderTest(String searchKey, String mainProductName) { 
-		resultsPage = accPage.performSearch(searchKey);//4. zig-zag pattern
+		resultsPage = accPage.performSearch(searchKey);//4. zig zag pattern
 		productInfoPage = resultsPage.selectProduct(mainProductName);
 		String actHeader = productInfoPage.getProductHeader();
 		Assert.assertEquals(actHeader, mainProductName);
@@ -46,7 +52,7 @@ public class ProductInfoPageTest extends BaseTest {
 	
 	@Test(dataProvider="getProductImagesTestData")
 	public void productImagesTest(String searchKey, String mainProductName, int imageCount) {
-		resultsPage = accPage.performSearch(searchKey);//4. zig-zag pattern
+		resultsPage = accPage.performSearch(searchKey);//4. zig zag pattern
 		productInfoPage = resultsPage.selectProduct(mainProductName);
 		int actImageCount = productInfoPage.getProductImagesCount();
 		Assert.assertEquals(actImageCount, imageCount);
@@ -61,6 +67,6 @@ public class ProductInfoPageTest extends BaseTest {
 		softAssert.assertEquals(actProductInfoMap.get("Brand"), "Apple");
 		softAssert.assertEquals(actProductInfoMap.get("Availablitiy"), "In Stock");
 		softAssert.assertEquals(actProductInfoMap.get("actualprice"), "$2000.00");
-		softAssert.assertAll();//5. which assertion got failed - gives all info.
+		softAssert.assertAll();//5. which assertion got failed - gives all info.because it was not a good point to write separate testcase for each of them.
 	}
 }
