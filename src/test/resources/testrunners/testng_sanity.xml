@@ -24,8 +24,8 @@
 	</test>
 	
 	<test name="Accounts Page Test">
-		<parameter name="browser" value="chrome" />
-		<parameter name="browserversion" value="148.0" />
+		<parameter name="browser" value="firefox" />
+		<parameter name="browserversion" value="151.0" />
 		
 		<classes>
 			<class name="com.qa.appn.tests.AccountsPageTest">
@@ -35,6 +35,17 @@
 	
 	</test>
 
+<test name="Product Info Page">
+		<parameter name="browser" value="edge" />
+		<parameter name="browserversion" value="148.0" />
+		
+		<classes>
+			<class name="com.qa.appn.tests.ProductInfoPageTest">
+				
+			</class>
+		</classes>
+	
+	</test>
 	
 </suite>
 

@@ -28,7 +28,7 @@ public class OptionsManager {
 			co.setBrowserVersion(prop.getProperty("browserversion"));
 			Map<String, Object> selenoidOptions = new HashMap<>();
 			selenoidOptions.put("screenResolution", "1280x1024x24");
-			selenoidOptions.put("enableVNC", true);
+			selenoidOptions.put("enableVNC", true); //want to visualize my test cases
 			co.setCapability("selenoid:options", selenoidOptions);
 		}
 		if(Boolean.parseBoolean(prop.getProperty("headless"))) 
